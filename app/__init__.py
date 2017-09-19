@@ -1,9 +1,11 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-def create_app(config = None):
-    app = Flask(__name__)
+app = Flask(__name__)
+app.config.from_object('app.config')
 
-    with app.app_context():
-        from app import routes
+db = SQLAlchemy(app)
 
-    return app
+with app.app_context():
+    from app import routes
+from app import models
