@@ -1,6 +1,6 @@
 from app import db
 
-class Entry(db.Model):
+class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), index = True, unique = True)
     # Url-friendly representation of title
