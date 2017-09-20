@@ -7,7 +7,13 @@ class Post(db.Model):
     slug = db.Column(db.String(140), index = True, unique = True)
     body = db.Column(db.String())
     timestamp = db.Column(db.DateTime)
-    published = db.Column(db.Boolean(), index=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = re.sub('[^\w]+', '-', self.title.lower())
+        ret = super(Entry, self).save(*args, **kwargs)
+
+        return ret
 
     def __repr__(self):
-        return "Title: %r \nSlug: %r\nContent: %r" % (self.title, self.slug, self.body)
+        return "Title: %r \nSlug: %r\nContent: %r\n" % (self.title, self.slug, self.body)
