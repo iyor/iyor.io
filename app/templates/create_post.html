@@ -1,0 +1,17 @@
+{% extends "iyor_base.html" %}
+
+{% block content %}
+  <h1>Post</h1>
+  <form action="" method="post" name="create_post">
+    {{ form.hidden_tag() }}
+    <p>
+      Title: <br>
+      {{ form.title(size=80) }}
+    </p>
+    <p>
+      Content: <br>
+      {{ form.body }}
+    </p>
+    <p><input type="submit" value="Post"></p>
+  </form>
+{% endblock %}

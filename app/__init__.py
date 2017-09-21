@@ -8,4 +8,4 @@ db = SQLAlchemy(app)
 
 with app.app_context():
     from app import routes
-from app import models
+from app.models import *
