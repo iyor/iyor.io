@@ -1,6 +1,8 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+ADMIN_PASS = 'admin_pass'
+
 SECRET_KEY = 'my-key'
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
