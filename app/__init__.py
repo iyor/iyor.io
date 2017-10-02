@@ -7,5 +7,6 @@ app.config.from_object('app.config')
 db = SQLAlchemy(app)
 
 with app.app_context():
-    from app import routes
+    from app.routes import public_routes, admin_routes
+
 from app.models import *
