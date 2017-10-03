@@ -1,3 +1,5 @@
+import re
+
 from app import db
 
 class Post(db.Model):
@@ -8,12 +10,13 @@ class Post(db.Model):
     body = db.Column(db.String())
     timestamp = db.Column(db.DateTime)
 
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = re.sub('[^\w]+', '-', self.title.lower())
-        ret = super(Entry, self).save(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        if not 'slug' in kwargs:
+            kwargs['slug'] = self.make_slug(kwargs.get('title', ''))
+        super().__init__(*args, **kwargs)
 
-        return ret
+    def make_slug(self, title):
+        return re.sub('[^\w]+', '-', title.lower())
 
     def __repr__(self):
         return "Title: %r \nSlug: %r\nContent: %r\n" % (self.title, self.slug, self.body)
