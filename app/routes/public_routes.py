@@ -1,12 +1,17 @@
 from flask import render_template, redirect, Response, url_for, abort
 from flask import current_app as app
 from app import models, db
+from app.config import POSTS_PER_PAGE
 
 @app.route('/')
 @app.route('/index')
-def index():
+@app.route('/index/<int:page>')
+def index(page=1):
     title = "home"
-    posts = reversed(models.Post.query.all())
+    posts = (
+        models.Post.query.order_by(models.Post.timestamp.desc())
+        .paginate(page, POSTS_PER_PAGE, False)
+    )
     return render_template('index.html',
                            title = title,
                            posts = posts)

@@ -1,7 +1,10 @@
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 ADMIN_PASS = 'admin_pass'
+
+POSTS_PER_PAGE = 8
 
 SECRET_KEY = 'my-key'
 
