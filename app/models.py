@@ -19,4 +19,4 @@ class Post(db.Model):
         return re.sub('[^\w]+', '-', title.lower())
 
     def __repr__(self):
-        return "Title: %r \nSlug: %r\nContent: %r\n" % (self.title, self.slug, self.body)
+        return "Title: %r \nSlug: %r\nTimestamp: %r" % (self.title, self.slug, self.timestamp)
