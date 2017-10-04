@@ -1,11 +1,12 @@
 from flask_wtf import Form
 from wtforms import StringField, TextAreaField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional
 from app import models
 
 
 class PostForm(Form):
     title = StringField('title', validators=[DataRequired()])
+    caption = StringField('caption',  validators=[Optional()])
     body = TextAreaField('body', validators=[DataRequired()])
 
     def validate(self):

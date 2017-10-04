@@ -21,6 +21,7 @@ def create():
     if form.validate_on_submit():
         post = models.Post(title = form.data['title'],
                     timestamp = datetime.utcnow(),
+                    caption = form.data['caption'],
                     body = form.data['body'])
         db.session.add(post)
         db.session.commit()
