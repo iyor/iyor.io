@@ -1,4 +1,8 @@
 import re
+from flask import Markup
+from markdown import markdown
+from markdown.extensions.codehilite import CodeHiliteExtension
+from markdown.extensions.extra import ExtraExtension
 
 from app import db
 
@@ -9,6 +13,13 @@ class Post(db.Model):
     slug = db.Column(db.String(140), index = True, unique = True)
     body = db.Column(db.String())
     timestamp = db.Column(db.DateTime)
+
+    @property
+    def html_body(self):
+        hilite = CodeHiliteExtension(linenums=False, css_class='highlight')
+        extras = ExtraExtension()
+        markdown_content = markdown(self.body, extensions=[hilite, extras])
+        return Markup(markdown_content)
 
     def __init__(self, *args, **kwargs):
         if not 'slug' in kwargs:
