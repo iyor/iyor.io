@@ -14,7 +14,8 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), index = True, unique = True)
     # Url-friendly representation of title
-    slug = db.Column(db.String(140), index = True, unique = True)
+    caption = db.Column(db.String(140), index = True)
+    slug = db.Column(db.String(140), index = True)
     body = db.Column(db.String())
     timestamp = db.Column(db.DateTime)
 
@@ -39,4 +40,4 @@ class Post(db.Model):
         return re.sub('[^\w]+', '-', title.lower())
 
     def __repr__(self):
-        return "Title: %r \nSlug: %r\nTimestamp: %r" % (self.title, self.slug, self.timestamp)
+        return "Title: %r \nSlug: %r\nTimestamp: %r\nCaption: %r" % (self.title, self.slug, self.timestamp, self.caption)
