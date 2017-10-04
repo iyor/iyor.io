@@ -3,8 +3,12 @@ from flask import Markup
 from markdown import markdown
 from markdown.extensions.codehilite import CodeHiliteExtension
 from markdown.extensions.extra import ExtraExtension
+from micawber import bootstrap_basic, parse_html
+from micawber.cache import Cache as OEmbedCache
 
 from app import db
+
+oembed_providers = bootstrap_basic(OEmbedCache())
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,7 +23,12 @@ class Post(db.Model):
         hilite = CodeHiliteExtension(linenums=False, css_class='highlight')
         extras = ExtraExtension()
         markdown_content = markdown(self.body, extensions=[hilite, extras])
-        return Markup(markdown_content)
+        oembed_content = parse_html(
+            markdown_content,
+            oembed_providers,
+            urlize_all=True,
+            maxwidth=600)
+        return Markup(oembed_content)
 
     def __init__(self, *args, **kwargs):
         if not 'slug' in kwargs:
