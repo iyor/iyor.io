@@ -16,6 +16,12 @@ def index(page=1):
                            title = title,
                            posts = posts)
 
+@app.route('/about')
+def about():
+    title = "about"
+    return render_template('about.html',
+                           title = title)
+
 @app.route('/<slug>/')
 def detail(slug):
     post = models.Post.query.filter_by(slug=slug).first()
