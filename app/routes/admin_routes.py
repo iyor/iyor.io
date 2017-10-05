@@ -4,7 +4,7 @@ from flask import current_app as app
 from app import models, db
 from app.forms import PostForm
 from datetime import datetime
-from app.config import ADMIN_PASS
+from app.config import ADMIN_PASS, ADMIN_USER
 
 def login_required(fn):
     @functools.wraps(fn) # Test if this could be removed
@@ -35,7 +35,8 @@ def login():
     next_url = request.args.get('next') or request.form.get('next')
     if request.method == 'POST' and request.form.get('password'):
         password = request.form.get('password')
-        if password == ADMIN_PASS:
+        username = request.form.get('username')
+        if password == ADMIN_PASS and username == ADMIN_USER:
             session['logged_in'] = True
             session.permanent = True  # Use cookie to store session.
             flash('You are now logged in.', 'success')
