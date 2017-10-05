@@ -2,9 +2,9 @@
 {% block content %}
   {% for post in posts.items %}
     <div>
-      <h2>
+      <a href="{{ '/' + post.slug }}">
         {{ post.title }}
-      </h2>
+      </a>
       <p>
         {{ post.caption }}
       </p>
