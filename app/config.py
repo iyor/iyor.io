@@ -2,6 +2,7 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+ADMIN_USER = 'admin'
 ADMIN_PASS = 'admin_pass'
 
 POSTS_PER_PAGE = 8
