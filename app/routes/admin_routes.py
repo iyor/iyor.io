@@ -45,9 +45,7 @@ def login():
             flash('Incorrect password.', 'danger')
     return render_template('login.html', next_url=next_url)
 
-@app.route('/logout/', methods=['GET', 'POST'])
+@app.route('/logout/', methods=['POST'])
 def logout():
-    if request.method == 'POST':
-        session.clear()
-        return redirect(url_for('login'))
-    return render_template('logout.html')
+    session.clear()
+    return redirect(url_for('login'))
