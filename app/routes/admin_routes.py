@@ -1,5 +1,6 @@
 import functools
 from flask import render_template, Response, request, flash, redirect, url_for, session
+from werkzeug.security import check_password_hash
 from flask import current_app as app
 from app import models, db
 from app.forms import PostForm
@@ -36,7 +37,7 @@ def login():
     if request.method == 'POST' and request.form.get('password'):
         password = request.form.get('password')
         username = request.form.get('username')
-        if password == ADMIN_PASS and username == ADMIN_USER:
+        if check_password_hash(ADMIN_USER, username) and check_password_hash(ADMIN_PASS, password):
             session['logged_in'] = True
             session.permanent = True  # Use cookie to store session.
             flash('You are now logged in.', 'success')
