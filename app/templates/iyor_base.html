@@ -11,7 +11,12 @@
     <div class="nav-bar">
       <img id="logo" src="static/assets/iyor.svg" alt="iyor logo">
       <div id="home" class="nav-item"><a href="/index">HOME</a></div>
-      <div id="things" class="nav-item">THINGS</div>
+      <div id="things" class="nav-item">
+        THINGS
+        <div class="things-content">
+          <a href="/">focus</a>
+        </div>
+      </div>
       <div id="about" class="nav-item"><a href="/about">ABOUT</a></div>
       {% if session['logged_in'] %}
         <form action="{{ url_for('logout') }}" method="post">

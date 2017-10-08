@@ -11,6 +11,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
+    min-width: 350px;
     background-color: #FFFFFF;
     -webkit-box-shadow: 0 6px 8px -8px #222;
     -moz-box-shadow: 0 6px 8px -8px #222;
@@ -58,6 +59,30 @@ body {
     border-bottom: medium solid #69A6C3;
 }
 
+.things-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    margin-top: 0.2em;
+    width: 6em;
+    -webkit-box-shadow: 0 6px 8px -8px #222;
+    -moz-box-shadow: 0 6px 8px -8px #222;
+    box-shadow: 0 6px 8px -8px #222;
+}
+
+.things-content a {
+    display: block;
+}
+
+.things-content a:hover {
+    color: white;
+    background-color: #36B880;
+}
+
+#things:hover .things-content {
+    display: block;
+}
+
 #content {
     margin-top: 3em;
 }
@@ -71,4 +96,3 @@ body {
     font-family: open-sans;
     src: url(../assets/OpenSans-Regular.ttf);
 }
-
