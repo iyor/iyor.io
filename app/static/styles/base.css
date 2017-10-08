@@ -1,0 +1,140 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 6rem;
+    font-size: 100%;
+    font-family: open-sans;
+    font-color: #1A1B1C;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-width: 350px;
+    background-color: #FFFFFF;
+    box-shadow: 0 6px 8px -8px #222;
+}
+
+#logo {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.875em;
+    height: 1.75em;
+    padding: 0em 1em 0 1em;
+}
+
+#home {
+    margin-left: 4em;
+}
+
+.nav-item {
+    display: inline-block;
+    text-align: center;
+    width: 6em;
+    height: 2.5em;
+    line-height: 2.5em;
+}
+
+.nav-item a, .post a {
+    text-decoration: none;
+    color: #1A1B1C;
+}
+
+.nav-item:hover {
+    margin-bottom: -1em;
+}
+
+#home:hover {
+    border-bottom: medium solid #DB704C;
+}
+
+#things:hover {
+    border-bottom: medium solid #36B880;
+}
+
+#about:hover {
+    border-bottom: medium solid #69A6C3;
+}
+
+.things-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    margin-top: 0em;
+    width: 6em;
+    box-shadow: 0 6px 8px -8px #222;
+}
+
+.things-content a {
+    display: block;
+}
+
+.things-content a:hover {
+    color: white;
+    background-color: #36B880;
+}
+
+#things:hover .things-content {
+    display: block;
+}
+
+#content {
+    padding-top: 3em;
+}
+
+.post {
+    margin: 1em auto;
+    max-width: 800px;
+    padding: 1em;
+    box-shadow: 0 2px 2px -2px #555;
+}
+
+.post .timestamp {
+    font-size: 0.7em;
+    margin: 1em;
+    color: #555;
+}
+
+.post a {
+    font-size: 1.5em;
+    font-family: open-sans-bold;
+}
+
+#logout {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    right: 3em;
+    top: 0.6em;
+}
+
+#footer {
+    text-align: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@font-face {
+    font-family: open-sans;
+    src: url(../assets/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: open-sans-bold;
+    src: url(../assets/OpenSans-Bold.ttf);
+}

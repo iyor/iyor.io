@@ -7,13 +7,25 @@
     {% endif %}
   </head>
   <body>
-    <div>iyor: <a href="/index">Home</a></div>
-    {% if session['logged_in'] %}
-      <form action="{{ url_for('logout') }}" method="post">
-        <button type="submit">Log out</button>
-      </form>
-    {% endif %}
-    <hr>
-    {% block content %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href={{ url_for('static',filename='styles/base.css') }}>
+    <div class="nav-bar">
+      <img id="logo" src={{ url_for('static',filename='assets/iyor.svg') }} alt="iyor logo">
+      <div id="home" class="nav-item"><a href="/index">HOME</a></div>
+      <div id="things" class="nav-item">
+        THINGS
+        <div class="things-content">
+          <a href="/">focus</a>
+        </div>
+      </div>
+      <div id="about" class="nav-item"><a href="/about">ABOUT</a></div>
+      {% if session['logged_in'] %}
+        <form id="logout" action="{{ url_for('logout') }}" method="post">
+          <button type="submit">Log out</button>
+        </form>
+      {% endif %}
+    </div>
+    <div id="content">
+      {% block content %}{% endblock %}
+    <div>
   </body>
 </html>

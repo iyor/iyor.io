@@ -1,0 +1,17 @@
+{% extends "iyor_base.html" %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='styles/about.css')}}>
+  <div id="about-section">
+    <h1>About</h1>
+    <div id="about-body">
+      <p>
+      This is my tiny corner of the internet. The odds of you randomly ending up here are less than winning a lottery jackpot and never having to work another day in your life. So you're really lucky.
+      </p>
+      <p>
+      Here, I write about computer science, the stuff I make and other miscellaniousness.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
