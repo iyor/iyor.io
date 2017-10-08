@@ -2,6 +2,8 @@ from flask import render_template, redirect, Response, url_for, abort
 from flask import current_app as app
 from app import models, db
 from app.config import POSTS_PER_PAGE
+import os.path
+import os
 
 @app.route('/')
 @app.route('/index')
@@ -21,6 +23,14 @@ def about():
     title = "about"
     return render_template('about.html',
                            title = title)
+
+@app.route('/things/<project>')
+def thing(project):
+    project_template = 'things/' + project + '.html'
+    abs_path = os.getcwd() + '/app/templates/' + project_template
+    if os.path.isfile(abs_path):
+        return render_template(project_template)
+    abort(404)
 
 @app.route('/<slug>/')
 def detail(slug):
