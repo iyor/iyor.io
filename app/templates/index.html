@@ -5,6 +5,9 @@
       <a href="{{ '/' + post.slug }}">
         {{ post.title }}
       </a>
+      <div class="timestamp">
+        {{ post.timestamp.date() }}
+      </div>
       <p>
         {{ post.caption }}
       </p>

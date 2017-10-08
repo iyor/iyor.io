@@ -13,8 +13,6 @@ body {
     width: 100%;
     min-width: 350px;
     background-color: #FFFFFF;
-    -webkit-box-shadow: 0 6px 8px -8px #222;
-    -moz-box-shadow: 0 6px 8px -8px #222;
     box-shadow: 0 6px 8px -8px #222;
 }
 
@@ -38,7 +36,7 @@ body {
     line-height: 2.5em;
 }
 
-.nav-item a {
+.nav-item a, .post a {
     text-decoration: none;
     color: #1A1B1C;
 }
@@ -63,10 +61,8 @@ body {
     display: none;
     position: absolute;
     background-color: white;
-    margin-top: 0.2em;
+    margin-top: 0.15em;
     width: 6em;
-    -webkit-box-shadow: 0 6px 8px -8px #222;
-    -moz-box-shadow: 0 6px 8px -8px #222;
     box-shadow: 0 6px 8px -8px #222;
 }
 
@@ -88,11 +84,29 @@ body {
 }
 
 .post {
+    margin: 1em auto;
+    max-width: 800px;
     padding: 1em;
+    box-shadow: 0 2px 2px -2px #555;
+}
+
+.post .timestamp {
+    font-size: 0.7em;
     margin: 1em;
+    color: #555;
+}
+
+.post a {
+    font-size: 1.5em;
+    font-family: open-sans-bold;
 }
 
 @font-face {
     font-family: open-sans;
     src: url(../assets/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: open-sans-bold;
+    src: url(../assets/OpenSans-Bold.ttf);
 }
