@@ -103,3 +103,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# Assets
+*.svg
+*.ttf
+
+# Mac system file
+.DS_Store
