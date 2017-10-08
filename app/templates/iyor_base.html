@@ -7,9 +7,9 @@
     {% endif %}
   </head>
   <body>
-    <link rel="stylesheet" type="text/css" href="static/style/base.css">
+    <link rel="stylesheet" type="text/css" href={{ url_for('static',filename='styles/base.css') }}>
     <div class="nav-bar">
-      <img id="logo" src="static/assets/iyor.svg" alt="iyor logo">
+      <img id="logo" src={{ url_for('static',filename='assets/iyor.svg') }} alt="iyor logo">
       <div id="home" class="nav-item"><a href="/index">HOME</a></div>
       <div id="things" class="nav-item">
         THINGS
