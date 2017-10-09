@@ -138,3 +138,18 @@ body {
     font-family: open-sans-bold;
     src: url(../assets/OpenSans-Bold.ttf);
 }
+
+@media only screen and (max-width: 500px){
+
+    body {
+        margin: 0.2em;
+    }
+
+    .nav-item {
+        width: 4em;
+    }
+
+    .post a, #post h1, #post-body {
+        word-wrap: break-word;
+    }
+}
