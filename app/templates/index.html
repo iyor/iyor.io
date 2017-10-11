@@ -2,7 +2,7 @@
 {% block content %}
   {% for post in posts.items %}
     <div class="post">
-      <a href="{{ '/' + post.slug }}">
+      <a href="{{ url_for('detail', slug=post.slug) }}">
         {{ post.title }}
       </a>
       <div class="timestamp">
