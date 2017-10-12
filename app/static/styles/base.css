@@ -91,6 +91,10 @@ body {
     display: block;
 }
 
+#things:focus {
+    outline: 0;
+}
+
 #content {
     padding-top: 3em;
 }
@@ -147,6 +151,10 @@ body {
 
     .nav-item {
         width: 4em;
+    }
+
+    #things:focus .things-content {
+        display: block;
     }
 
     .post a, #post h1, #post-body {
