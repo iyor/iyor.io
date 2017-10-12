@@ -25,7 +25,7 @@ def about():
                            title = title)
 
 @app.route('/things/<project>')
-def thing(project):
+def things(project):
     project_template = 'things/' + project + '.html'
     abs_path = os.getcwd() + '/app/templates/' + project_template
     if os.path.isfile(abs_path):

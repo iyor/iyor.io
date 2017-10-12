@@ -7,3 +7,4 @@ micawber==0.3.4
 Markdown==2.6.9
 sqlalchemy_migrate==0.11.0
 beautifulsoup4==4.6.0
+flipflop==1.0
